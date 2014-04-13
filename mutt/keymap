@@ -1,0 +1,29 @@
+bind attach i exit
+bind attach <space> view-attach
+bind browser <space> select-entry
+bind editor <space> noop
+bind index gg first-entry
+bind index G last-entry
+bind index \cf next-page
+bind index \cb previous-page
+bind index \cx sync-mailbox
+bind pager j next-line
+bind pager k previous-line
+bind pager gg top
+bind pager G bottom
+bind index,pager R reply
+bind index,pager r group-reply
+bind index,pager L group-reply
+
+macro index D "<save-message>+trash<enter>"   "move message to the trash"
+macro index S "<save-message>+spam<enter>"    "mark message as spam"
+macro attach s "<save-entry><kill-line>~/Downloads/<enter>a" "Save attachment"
+macro index ga "<change-folder>=All Mail<enter>" "Go to all mail"
+macro index gs "<change-folder>=Spam<enter>" "Go to spam"
+macro index gt "<change-folder>=Trash<enter>" "Go to trash"
+
+macro index \cr "<tag-pattern>.\n<tag-prefix><clear-flag>N<untag-pattern>.\n" "Mark all messages as read"
+macro pager \cb |urlview\n "Call urlview"
+macro index,pager S "<save-message>=Spam<enter>" "Mark message as spam"
+
+# vim: syntax=muttrc

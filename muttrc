@@ -1,0 +1,65 @@
+# Editor
+set editor="vim -c 'set tw=70 et' '+/^$' "
+set edit_headers=yes # See the headers when editing
+
+# Send mail program
+set sendmail="msmtp_path"
+
+# Message cache
+set header_cache=~/.mutt/cache/header
+set maildir_header_cache_verify=no
+
+# Mail box
+set folder    = ~/.Mails/Gmail  # root folder
+set mbox_type = Maildir         # mailbox type
+set spoolfile = "+INBOX"        # inbox
+set mbox      = "+archive"      # [Gmail]/All Mail
+set postponed = "+drafts"       # [Gmail]/Drafts
+set record    = "+sent"
+
+# Check for new mail
+mailboxes "=inbox"
+mailboxes "=mailist"
+set check_new=yes
+set timeout=30
+
+# Switch inbox
+mailboxes +INBOX +archive +sent +drafts +spam +trash +comp.lang.c
+
+# Replay
+set include=yes     # 回信时是否包含原文
+set indent_str="> " # 回信的引文之前插入那个符号？
+set fast_reply      # 当你按"r"回信时，不提示地址和主题
+unset metoo
+unset reply_self
+set reply_regexp="^(re([\[0-9\]+])*|aw|回复)(:[ \t]|：)"
+
+set quit=ask-yes
+
+# encoding
+set rfc2047_parameters=yes
+
+# sort
+set sort=threads
+set sort_aux=reverse-last-date-received
+set sort_re
+
+set wait_key=no
+
+# Pager view
+# 当你在用 pager 看信件时，在 index 留出多少行显示邮件列表？
+set pager_index_lines=4
+set pager_stop=yes
+
+set move=no
+
+# Auto view
+set mailcap_path=~/.mutt/mailcap
+auto_view text/html application/pdf application/msword
+
+source ~/.mutt/zenburn.colors
+source ~/.mutt/keymap
+set alias_file=~/.mutt/alias
+set sort_alias=alias
+
+# vim: syntax=muttrc
